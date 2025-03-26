@@ -1,0 +1,15 @@
+
+services:
+  qwen-free-api:
+    container_name: qwen-free-api
+#    image: m.daocloud.io/docker.io/vinlic/qwen-free-api:latest
+    image: vinlic/qwen-free-api:latest
+    restart: always
+    ports:
+      - "8081:8000"
+    environment:
+      - TZ=Asia/Shanghai
+
+
+# docker compose -f docker-compose-qwen_free_api.yml up -d
+# docker compose -f docker-compose-qwen_free_api.yml down

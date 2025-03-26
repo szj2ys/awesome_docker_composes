@@ -1,0 +1,43 @@
+
+services:
+  llm_server:
+    image: vllm/vllm-openai:latest
+    restart: always
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    volumes:
+      - /root/szj/models:/root/szj/models
+    environment:
+      - HF_HUB_OFFLINE=1
+      - VLLM_USE_MODELSCOPE=True
+      - VLLM_USE_V1=1
+    ports:
+      - "8002:8888"
+    ipc: host
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "3"
+    command: >
+      --model /root/szj/models/QwQ-32B-AWQ
+      --served_model_name qwq32b
+      --enable-reasoning
+      --reasoning-parser deepseek_r1
+      --cpu-offload-gb 32
+      --block-size 32
+      --gpu-memory-utilization 0.95
+      --kv-cache-dtype=auto
+      --max_model_len 32768
+      --max_num_seqs 128
+      --port 8888
+      --dtype=auto
+      --api-key "sk-1a2B3c4D5e6F7g8H9iJkLm0n1O2p3Qr4s5T6uV7wX8Y9Z0123456789"
+      --enforce-eager
+    
+    

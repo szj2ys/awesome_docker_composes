@@ -1,0 +1,22 @@
+
+services:
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j      # 容器名
+    restart: unless-stopped     # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      NEO4J_AUTH: neo4j/123456   # 设置neo4j的账号密码
+    volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "./neo4j/data:/var/lib/neo4j/data"
+      - "./neo4j/logs:/var/lib/neo4j/logs"
+    ports:                              # 映射端口
+      - "7474:7474"
+      - "7687:7687"
+
+
+# docker compose -f docker-compose-neo4j.yml up -d
+# http://localhost:7474
+
+
+
+

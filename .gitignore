@@ -4,11 +4,13 @@ __pycache__/
 *$py.class
 样本数据.csv
 *.jpg
+redis/
+.datastore/
 downloaded_urls.txt
 *.png
 whisper-medusa
-cache_dir
-models
+cache_dir/
+models/
 runs
 chinese-roberta-wwm-ext
 input/

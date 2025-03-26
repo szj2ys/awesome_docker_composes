@@ -1,4 +1,3 @@
-version: '3'
 
 # 网桥mongo -> 方便相互通讯
 networks:
@@ -16,8 +15,8 @@ services:
       MONGO_DATA_DIR: /data/db
       MONGO_LOG_DIR: /data/logs
     volumes:
-      - ./mongodb/db:/data/db
-      - ./mongodb/log:/data/log
+      - ./.datastore/mongodb/db:/data/db
+      - ./.datastore/mongodb/log:/data/log
     ports:
       - "27017:27017"
     networks:
@@ -39,4 +38,5 @@ services:
     networks:
       - mongo
 
-# docker-compose -f docker-compose-mongodb.yml up -d
+# docker compose -f mongodb.yml up -d
+# docker compose -f mongodb.yml down

@@ -7,14 +7,15 @@ services:
     environment:                        # 设置环境变量,相当于docker run命令中的-e
       NEO4J_AUTH: neo4j/123456   # 设置neo4j的账号密码
     volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
-      - "./neo4j/data:/var/lib/neo4j/data"
-      - "./neo4j/logs:/var/lib/neo4j/logs"
+      - "./.datastore/neo4j/data:/var/lib/neo4j/data"
+      - "./.datastore/neo4j/logs:/var/lib/neo4j/logs"
     ports:                              # 映射端口
       - "7474:7474"
       - "7687:7687"
 
 
-# docker compose -f docker-compose-neo4j.yml up -d
+# docker compose -f neo4j.yml up -d
+# docker compose -f neo4j.yml down
 # http://localhost:7474
 
 

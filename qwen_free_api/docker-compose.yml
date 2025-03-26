@@ -11,5 +11,7 @@ services:
       - TZ=Asia/Shanghai
 
 
-# docker compose -f qwen-free-api.yml up -d
-# docker compose -f qwen-free-api.yml down
+# source：https://github.com/LLM-Red-Team/qwen-free-api
+# docker compose up -d
+# docker compose down
+

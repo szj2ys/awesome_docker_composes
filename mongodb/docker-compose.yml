@@ -15,8 +15,8 @@ services:
       MONGO_DATA_DIR: /data/db
       MONGO_LOG_DIR: /data/logs
     volumes:
-      - ./.datastore/mongodb/db:/data/db
-      - ./.datastore/mongodb/log:/data/log
+      - ../.datastore/mongodb/db:/data/db
+      - ../.datastore/mongodb/log:/data/log
     ports:
       - "27017:27017"
     networks:
@@ -38,5 +38,5 @@ services:
     networks:
       - mongo
 
-# docker compose -f mongodb.yml up -d
-# docker compose -f mongodb.yml down
+# docker compose up -d
+# docker compose down

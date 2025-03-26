@@ -6,10 +6,10 @@ services:
     container_name: mysql8                                   # 容器名为'mysql8'
     restart: unless-stopped                                               # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
     volumes:                                                      # 数据卷挂载路径设置,将本机目录映射到容器目录
-      - "./.datastore/mysql8.0/my.cnf:/etc/mysql/my.cnf"
-      - "./.datastore/mysql8.0/data:/var/lib/mysql"
-      - "./.datastore/mysql8.0/conf.d:/etc/mysql/conf.d"
-      - "./.datastore/mysql8.0/mysql-files:/var/lib/mysql-files"
+      - "../.datastore/mysql8.0/my.cnf:/etc/mysql/my.cnf"
+      - "../.datastore/mysql8.0/data:/var/lib/mysql"
+      - "../.datastore/mysql8.0/conf.d:/etc/mysql/conf.d"
+      - "../.datastore/mysql8.0/mysql-files:/var/lib/mysql-files"
     environment:                        # 设置环境变量,相当于docker run命令中的-e
       TZ: Asia/Shanghai
       LANG: en_US.UTF-8
@@ -18,6 +18,6 @@ services:
     ports:                              # 映射端口
       - "3316:3306"
 
-# docker compose -f docker-compose-mysql8.0.yml up -d
-# docker compose -f docker-compose-mysql8.0.yml down
+# docker compose up -d
+# docker compose down
 #docker exec -it mysql8 mysql -u root -p

@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 样本数据.csv
 *.jpg
-redis/
 .datastore/
 downloaded_urls.txt
 *.png

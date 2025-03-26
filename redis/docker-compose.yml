@@ -10,10 +10,10 @@ services:
       TZ: Asia/Shanghai
       LANG: en_US.UTF-8
     volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
-      - "./.datastore/redis/data:/data"
-      - "./.datastore/redis/config/redis.conf:/etc/redis/redis.conf"  # `redis.conf`文件内容`http://download.redis.io/redis-stable/redis.conf`
+      - "../.datastore/redis/data:/data"
+      - "../.datastore/redis/config/redis.conf:/etc/redis/redis.conf"  # `redis.conf`文件内容`http://download.redis.io/redis-stable/redis.conf`
     ports:                              # 映射端口
       - "6399:6379"
 
-#docker compose -f redis.yml up -d
-#docker compose -f redis.yml up down
+#docker compose up -d
+#docker compose up down

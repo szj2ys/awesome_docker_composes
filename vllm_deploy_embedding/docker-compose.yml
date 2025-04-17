@@ -29,6 +29,8 @@ services:
       --port 8888
       --dtype=auto
 
+# 教程：https://mp.weixin.qq.com/s/59aq-NL5PILAL1asgImhVA
+
 
 
 

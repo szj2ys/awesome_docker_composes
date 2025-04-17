@@ -36,4 +36,8 @@ services:
       --dtype=auto
       --api-key "sk-1a2B3c4D5e6F7g8H9iJkLm0n1O2p3Qr4s5T6uV7wX8Y9Z0123456789"
       --enforce-eager
-      
+  
+
+# 教程：https://mp.weixin.qq.com/s/59aq-NL5PILAL1asgImhVA
+
+

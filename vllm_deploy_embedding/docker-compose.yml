@@ -1,0 +1,35 @@
+
+services:
+  llm_server:
+    image: vllm/vllm-openai:latest
+    restart: always
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    volumes:
+      - /root/szj/models:/root/szj/models
+    environment:
+      - HF_HUB_OFFLINE=1
+      - VLLM_USE_MODELSCOPE=True
+    ports:
+      - "8005:8888"
+    ipc: host
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "3"
+    command: >
+      --model /root/szj/models/bge-m3
+      --served_model_name bge-m3
+      --port 8888
+      --dtype=auto
+
+
+
+
+

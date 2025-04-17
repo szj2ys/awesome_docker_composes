@@ -1,0 +1,20 @@
+
+
+services:
+  joern:
+    build:
+      context: .  # 指定Dockerfile所在的目录
+      dockerfile: Dockerfile  # 指定Dockerfile文件名
+    container_name: joern-server
+    ports:
+      - "18082:18082"
+    volumes:
+      - ./:/app:rw
+      - /tmp:/tmp
+    working_dir: /app
+    command: joern --server --server-port 18082 --server-auth-username admin --server-auth-password admin
+    restart: unless-stopped
+
+
+# docker compose up -d
+
